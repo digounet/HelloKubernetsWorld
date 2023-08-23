@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: hellokubernets
+  name: hellokubernets
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: hellokubernets
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hellokubernets
+    spec:
+      containers:
+      - image: docker.io/digounet/hellokubernets
+        name: hellokubernets
+        imagePullPolicy: Always
+        resources: {}
+        ports:
+          - containerPort: 8080 
+status: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hellokubernets
+  labels:
+    run: hellokubernets
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    app: hellokubernets
+  type: NodePort

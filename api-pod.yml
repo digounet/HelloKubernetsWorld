@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hellokubernets
+spec:
+  containers:
+    - image: docker.io/digounet/hellokubernets
+      name: hellokubernets
+      imagePullPolicy: Always
+      resources: {}
+      ports:
+        - containerPort: 8080

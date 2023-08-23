@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hellokubernets
+  labels:
+    run: hellokubernets
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    app: hellokubernets
+  type: NodePort
